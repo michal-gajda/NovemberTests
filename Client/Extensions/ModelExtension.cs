@@ -1,13 +1,17 @@
 ﻿namespace Gajda.NovemberTests.Client.Extensions
 {
-    using Gajda.NovemberTests.Infrastructure;
+    using Gajda.NovemberTests;
 
     public static class ModelExtension
     {
-        public static Gajda.NovemberTests.Infrastructure.Person Map(
-            this Gajda.NovemberTests.Client.Models.Person source)
+        public static Infrastructure.Person Map(this Models.Person source)
         {
-            return new Person
+            if (source == null)
+            {
+                return null;
+            }
+
+            return new Infrastructure.Person
                        {
                            Id = source.Id,
                            DateOfBirth = source.DateOfBirth,
@@ -17,10 +21,14 @@
                        };
         }
 
-        public static Gajda.NovemberTests.Client.Models.Person Map(
-            this Gajda.NovemberTests.Infrastructure.Person source)
+        public static Models.Person Map(this Infrastructure.Person source)
         {
-            return new Gajda.NovemberTests.Client.Models.Person
+            if (source == null)
+            {
+                return null;
+            }
+
+            return new Models.Person
                        {
                            Id = source.Id,
                            DateOfBirth = source.DateOfBirth,
@@ -29,6 +37,5 @@
                            LastName = source.LastName
                        };
         }
-
     }
 }
