@@ -29,6 +29,7 @@
                                    where person.FirstName.Contains(value)
                                          || !string.IsNullOrEmpty(person.MiddleName)
                                              && person.MiddleName.Contains(value) || person.LastName.Contains(value)
+                                             orderby person.LastName
                                    select person)
             {
                 this.People.Add(person);

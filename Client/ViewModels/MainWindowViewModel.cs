@@ -1,6 +1,7 @@
 ﻿namespace Gajda.NovemberTests.Client.ViewModels
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using Gajda.NovemberTests.Client.Extensions;
@@ -25,7 +26,7 @@
                 this.source.Add(person.Map());
             }
 
-            foreach (var person in this.source)
+            foreach (var person in from person in this.source orderby person.LastName select person)
             {
                 this.People.Add(person);
             }

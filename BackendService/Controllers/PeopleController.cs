@@ -20,7 +20,6 @@
                     {
                         Id = new Guid("133e4066-9e6e-4ae1-8f5c-05dd6f87f87e"),
                         FirstName = "Tom",
-                        MiddleName = string.Empty,
                         LastName = "Cruise",
                         DateOfBirth = new DateTime(1962, 7, 3)
                     });
@@ -33,6 +32,73 @@
                         MiddleName = "Fiona",
                         LastName = "Roberts",
                         DateOfBirth = new DateTime(1967, 10, 28)
+                    });
+
+            this.people.Add(
+                new Person
+                    {
+                        Id = Guid.NewGuid(),
+                        FirstName = "Leonardo",
+                        MiddleName = "Wilhelm",
+                        LastName = "DiCaprio",
+                        DateOfBirth = new DateTime(1978, 11, 11)
+                    });
+
+            this.people.Add(
+                new Person
+                    {
+                        Id = Guid.NewGuid(),
+                        FirstName = "Tom",
+                        LastName = "Hanks",
+                        DateOfBirth = new DateTime(1956, 7, 9)
+                    });
+
+            this.people.Add(
+                new Person
+                    {
+                        Id = Guid.NewGuid(),
+                        FirstName = "Audrey",
+                        LastName = "Hupburn",
+                        DateOfBirth = new DateTime(1993, 5, 4)
+                    });
+
+            this.people.Add(
+                new Person
+                    {
+                        Id = Guid.NewGuid(),
+                        FirstName = "Jack",
+                        MiddleName = "Joseph",
+                        LastName = "Nicholson",
+                        DateOfBirth = new DateTime(1937, 4, 22)
+                    });
+
+            this.people.Add(
+                new Person
+                    {
+                        Id = Guid.NewGuid(),
+                        FirstName = "Meg",
+                        LastName = "Ryan",
+                        DateOfBirth = new DateTime(1961, 11, 19)
+                    });
+
+            this.people.Add(
+                new Person
+                    {
+                        Id = Guid.NewGuid(),
+                        FirstName = "Arnold",
+                        MiddleName = "Alois",
+                        LastName = "Schwarzenegger",
+                        DateOfBirth = new DateTime(1947, 7, 30)
+                    });
+
+            this.people.Add(
+                new Person
+                    {
+                        Id = Guid.NewGuid(),
+                        FirstName = "Meryl",
+                        MiddleName = "Louise",
+                        LastName = "Streep",
+                        DateOfBirth = new DateTime(1949, 6, 22)
                     });
         }
 
