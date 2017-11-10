@@ -1,0 +1,53 @@
+﻿<Window x:Class="Gajda.NovemberTests.Client.Views.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vc="clr-namespace:Gajda.NovemberTests.Client.ValueConverters"
+        xmlns:vm="clr-namespace:Gajda.NovemberTests.Client.ViewModels"
+        mc:Ignorable="d"
+        Title="November Test" MinHeight="350" MinWidth="525" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <vc:PersonValueConverter x:Key="personValueConverter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+        </Menu>
+        <ToolBarTray Grid.Row="1">
+            <ToolBar>
+                <TextBox Width="160" Text="{Binding SearchValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="{Binding SearchCommand}" CommandParameter="{Binding SearchValue, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Key="Enter" />
+                        </TextBox.InputBindings>
+                </TextBox>
+                <Button Content="Search"
+                        Command="{Binding SearchCommand}"
+                        CommandParameter="{Binding SearchValue, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+            </ToolBar>
+        </ToolBarTray>
+        <ListBox Grid.Row="2" ItemsSource="{Binding People, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl  Content="{Binding Converter={StaticResource personValueConverter}}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+        </ListBox>
+        <StatusBar Grid.Row="3">
+            <StatusBarItem HorizontalAlignment="Left">
+                <Label Padding="0" Content="{Binding Status, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
