@@ -72,7 +72,7 @@
     <Compile Include="Interfaces\IPeopleService.cs" />
     <Compile Include="Models\PeopleService.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Extensions\TimeSpanExtension.cs" />
+    <Compile Include="Extensions\DateTimeExtension.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="ValueConverters\PersonValueConverter.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />

@@ -2,7 +2,7 @@
 {
     using System;
 
-    public static class TimeSpanExtension
+    public static class DateTimeExtension
     {
         public static int YearsBetweenNow(this DateTime source)
         {
