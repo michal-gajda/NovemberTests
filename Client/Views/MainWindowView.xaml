@@ -29,8 +29,9 @@
             <ToolBar>
                 <TextBox Width="160" Text="{Binding SearchValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <TextBox.InputBindings>
-                        <KeyBinding Command="{Binding SearchCommand}" CommandParameter="{Binding SearchValue, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Key="Enter" />
-                        </TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding SearchCommand}" CommandParameter="{Binding SearchValue, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <KeyBinding Key="Escape" Command="{Binding ResetCommand}" />
+                    </TextBox.InputBindings>
                 </TextBox>
                 <Button Content="Search"
                         Command="{Binding SearchCommand}"

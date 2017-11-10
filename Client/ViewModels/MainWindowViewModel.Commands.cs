@@ -7,13 +7,9 @@
 
     public partial class MainWindowViewModel
     {
-        public ICommand SearchCommand
-        {
-            get
-            {
-                return new RelayCommand(this.Search, this.CanSearch);
-            }
-        }
+        public ICommand SearchCommand => new RelayCommand(this.Search, this.CanSearch);
+        public ICommand ResetCommand => new RelayCommand(this.Reset);
+
 
         private void Search(object parameter)
         {
@@ -36,11 +32,22 @@
             }
         }
 
-        public bool CanSearch(object parameter)
+        private bool CanSearch(object parameter)
         {
             var value = parameter as string;
 
             return !string.IsNullOrEmpty(value);
+        }
+
+        private void Reset(object parameter)
+        {
+            this.SearchValue = string.Empty;
+            this.People.Clear();
+
+            foreach (var person in from person in this.source orderby person.LastName select person)
+            {
+                this.People.Add(person);
+            }
         }
     }
 }
